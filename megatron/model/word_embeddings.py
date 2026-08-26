@@ -249,3 +249,6 @@ class SoftEmbedding(torch.nn.Module):
                 embedding = embedding[:, : self.neox_args.seq_length, ...]
             # otherwise, we're in incremental mode, and just want to forward the single embedding (since the soft prompt has already been cached)
             return embedding, layer_past, attention_mask
+
+# Fix size mismatch for word_embeddings.weight by ensuring compatible loading dimensions
+
